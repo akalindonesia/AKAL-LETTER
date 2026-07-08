@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKAL Letters — Premium Weekly Letters</title>
+<meta name="description" content="Surat mingguan tentang kehidupan, pemikiran, dan praktik — ditulis untuk pembaca yang ingin berpikir lebih dalam, hidup lebih bermakna.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #d4cec4;
+    font-family: 'EB Garamond', 'Georgia', serif;
+    color: #2c2419;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .envelope {
+    max-width: 680px;
+    width: 100%;
+  }
+
+  /* Wax seal header */
+  .seal-header {
+    text-align: center;
+    margin-bottom: -30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .wax-seal {
+    width: 72px;
+    height: 72px;
+    background: radial-gradient(circle at 35% 35%, #c0392b, #8b1a1a 60%, #5a1010);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 4px 15px rgba(139,26,26,0.4),
+      inset 0 -2px 6px rgba(0,0,0,0.3),
+      inset 0 2px 4px rgba(255,200,200,0.2);
+    position: relative;
+  }
+
+  .wax-seal::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .seal-text {
+    color: #f0d4a8;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  /* Main letter */
+  .letter {
+    background: #f5f0e8;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 31px,
+        rgba(139,115,85,0.06) 31px,
+        rgba(139,115,85,0.06) 32px
+      );
+    border: 1px solid #c4b8a4;
+    padding: 60px 50px 50px;
+    position: relative;
+    box-shadow:
+      0 2px 20px rgba(0,0,0,0.08),
+      0 0 0 1px rgba(255,255,255,0.5) inset;
+  }
+
+  /* Corner ornaments */
+  .letter::before,
+  .letter::after {
+    content: '\2767';
+    position: absolute;
+    font-size: 24px;
+    color: #a89070;
+    opacity: 0.5;
+  }
+  .letter::before { top: 18px; left: 22px; }
+  .letter::after { bottom: 18px; right: 22px; transform: rotate(180deg); }
+
+  .corner-tr, .corner-bl {
+    position: absolute;
+    font-size: 24px;
+    color: #a89070;
+    opacity: 0.5;
+  }
+  .corner-tr { top: 18px; right: 22px; transform: scaleX(-1); }
+  .corner-bl { bottom: 18px; left: 22px; transform: scaleX(-1) rotate(180deg); }
+
+  /* Inner border */
+  .inner-border {
+    border: 1px solid #c4b8a4;
+    padding: 40px 35px;
+    position: relative;
+  }
+
+  .inner-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(196,184,164,0.3);
+    pointer-events: none;
+  }
+
+  /* Title area */
+  .letter-head {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #c4b8a4;
+    position: relative;
+  }
+
+  .letter-head::after {
+    content: '~ \2726 ~';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f5f0e8;
+    padding: 0 15px;
+    color: #a89070;
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c2419;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .pub-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #8b7355;
+  }
+
+  .edition {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #a89070;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* Greeting */
+  .greeting {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #5a4a3a;
+    margin-bottom: 20px;
+  }
+
+  .body-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #3d3024;
+    margin-bottom: 25px;
+  }
+
+  /* Section headers */
+  .section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8b7355;
+    text-align: center;
+    margin: 35px 0 20px;
+    position: relative;
+  }
+
+  .section-label::before,
+  .section-label::after {
+    content: '\2014\2014';
+    color: #c4b8a4;
+    margin: 0 12px;
+    letter-spacing: 0;
+  }
+
+  /* Article links */
+  .article-item {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    margin: 10px 0;
+    background: rgba(168,144,112,0.06);
+    border: 1px solid rgba(196,184,164,0.4);
+    text-decoration: none;
+    color: #2c2419;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .article-item:hover {
+    background: rgba(168,144,112,0.14);
+    border-color: #a89070;
+  }
+
+  .article-item .article-tag {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a89070;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Featured article */
+  .featured {
+    border-color: #8b7355;
+    background: rgba(168,144,112,0.1);
+  }
+
+  .featured::before {
+    content: '\2605';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f5f0e8;
+    padding: 0 8px;
+    color: #8b7355;
+    font-size: 12px;
+  }
+
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 30px 0;
+    color: #c4b8a4;
+    font-size: 14px;
+    letter-spacing: 8px;
+  }
+
+  /* Sign off */
+  .sign-off {
+    text-align: right;
+    margin-top: 35px;
+    padding-top: 20px;
+  }
+
+  .sign-off .closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #5a4a3a;
+    margin-bottom: 4px;
+  }
+
+  .sign-off .signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c2419;
+  }
+
+  /* Footer */
+  .letter-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #c4b8a4;
+    position: relative;
+  }
+
+  .letter-footer::before {
+    content: '\2766';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f5f0e8;
+    padding: 0 10px;
+    color: #a89070;
+    font-size: 16px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .footer-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8b7355;
+    text-decoration: none;
+    border-bottom: 1px dotted #c4b8a4;
+    padding-bottom: 2px;
+  }
+
+  .footer-links a:hover {
+    color: #2c2419;
+    border-color: #2c2419;
+  }
+
+  .unsubscribe {
+    font-size: 11px;
+    color: #b0a48e;
+    margin-top: 15px;
+    font-style: italic;
+  }
+
+  .unsubscribe a {
+    color: #a89070;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 10px; }
+    .letter { padding: 40px 20px 30px; }
+    .inner-border { padding: 25px 18px; }
+    .pub-name { font-size: 24px; }
+    .body-text { font-size: 15px; }
+    .article-item { font-size: 14px; padding: 12px 14px; }
+    .footer-links { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="envelope">
+
+  <!-- Wax Seal -->
+  <div class="seal-header">
+    <div class="wax-seal">
+      <span class="seal-text">A</span>
+    </div>
+  </div>
+
+  <!-- Letter -->
+  <div class="letter">
+    <span class="corner-tr">&#10087;</span>
+    <span class="corner-bl">&#10087;</span>
+
+    <div class="inner-border">
+
+      <!-- Header -->
+      <div class="letter-head">
+        <div class="pub-name">AKAL</div>
+        <div class="pub-subtitle">Premium Letters</div>
+        <div class="edition">Weekly Intellectual Letters &mdash; Since 2026</div>
+      </div>
+
+      <!-- Body -->
+      <p class="greeting">Dearest Reader,</p>
+
+      <p class="body-text">
+        Terima kasih telah menjadi bagian dari AKAL Letters. Halaman ini adalah arsip lengkap seluruh edisi yang telah kami terbitkan. Setiap surat ditulis dengan niat yang sama: mengajak Anda berpikir lebih dalam, hidup lebih bermakna.
+      </p>
+
+      <p class="body-text">
+        Edisi baru terbit setiap Jumat sore. Halaman ini akan terus diperbarui &mdash; Anda cukup kembali ke sini kapan saja.
+      </p>
+
+      <!-- ============================================ -->
+      <!-- EDISI TERBARU — ganti bagian ini tiap minggu -->
+      <!-- ============================================ -->
+
+      <div class="section-label">Surat Terbaru</div>
+
+      <a href="https://medium.com/@edtechislamic/the-beauty-of-god-bahkan-berduka-ada-ilmunya-061ca7d24f0d" class="article-item featured" target="_blank" rel="noopener">
+        The Beauty of God, Bahkan Berduka Ada Ilmunya
+        <span class="article-tag">Edition No. 13 &middot; Juli 2026</span>
+      </a>
+
+      <!-- ============================================ -->
+      <!-- ARSIP EDISI SEBELUMNYA                       -->
+      <!-- Tambah edisi baru di ATAS list ini            -->
+      <!-- Copy template article-item, ganti href & judul -->
+      <!-- ============================================ -->
+
+      <div class="section-label">Arsip Surat</div>
+
+      <a href="https://medium.com/@edtechislamic/karena-uang-itu-sesuatu-yang-sakral-mari-kita-ngomongin-tentang-duit-774be981b1c1" class="article-item" target="_blank" rel="noopener">
+        Karena Uang Itu Sesuatu yang Sakral, Mari Kita Ngomongin Tentang Duit
+        <span class="article-tag">Edition No. 12</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/boleh-kita-menguasai-dunia-tapi-cukup-digenggaman-aja-jangan-masukin-ke-hati-b2133c2b2c8b" class="article-item" target="_blank" rel="noopener">
+        Boleh Kita Menguasai Dunia, Tapi Cukup Digenggaman Aja, Jangan Masukin ke Hati
+        <span class="article-tag">Edition No. 11</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/hampir-ga-ada-alasan-kita-untuk-ga-hidup-bahagia-sebuah-renungan-tentang-syukur-fa63fbe07e1b" class="article-item" target="_blank" rel="noopener">
+        Hampir Ga Ada Alasan Kita untuk Ga Hidup Bahagia: Sebuah Renungan Tentang Syukur
+        <span class="article-tag">Edition No. 10</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/kalimat-usaha-tidak-akan-menghianati-hasil-tidak-make-sense-secara-duniawi-tapi-masuk-akal-bagi-a95db9045227" class="article-item" target="_blank" rel="noopener">
+        &ldquo;Usaha Tidak Akan Menghianati Hasil&rdquo; Tidak Make Sense Secara Duniawi, Tapi Masuk Akal Bagi yang Mencari Akhirat
+        <span class="article-tag">Edition No. 09</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/how-mahar-17-juta-mengalahkan-nilai-mahar-100-juta-91ce5c6e685a" class="article-item" target="_blank" rel="noopener">
+        How Mahar 17 Juta Mengalahkan Nilai Mahar 100 Juta
+        <span class="article-tag">Edition No. 08</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/alhamdulillah-saya-patah-hati-coba-kalo-ngga-e30d75539e77" class="article-item" target="_blank" rel="noopener">
+        Alhamdulillah Saya Patah Hati, Coba Kalo Ngga?
+        <span class="article-tag">Edition No. 07</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/pada-akhirnya-urusan-di-dunia-ini-adalah-tentang-aku-dan-tuhan-5e4712ca615c" class="article-item" target="_blank" rel="noopener">
+        Pada Akhirnya, Urusan di Dunia Ini Adalah Tentang &ldquo;Aku dan Tuhan&rdquo;
+        <span class="article-tag">Edition No. 06</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/maryam-pohon-kurma-dan-chaos-theory-sejumput-alasan-kenapa-rezeki-itu-sepenuhnya-di-tangan-c55b052d8c16" class="article-item" target="_blank" rel="noopener">
+        Maryam, Pohon Kurma, dan Chaos Theory: Sejumput Alasan Kenapa Rezeki Itu Sepenuhnya di Tangan Allah
+        <span class="article-tag">Edition No. 05</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/tuhan-dalam-darah-kasur-9801b5497351" class="article-item" target="_blank" rel="noopener">
+        Tuhan dalam Darah Kasur
+        <span class="article-tag">Edition No. 04</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/100-mati-dan-menjadi-manusia-yang-bersikap-biasa-aja-d4120fd8ceb3" class="article-item" target="_blank" rel="noopener">
+        100% Mati dan Menjadi Manusia yang Bersikap &ldquo;Biasa Aja&rdquo;
+        <span class="article-tag">Edition No. 03</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/hidup-berkarir-berkeluarga-berislam-beragama-sampai-beriman-adalah-keputusan-investasi-why-a04370ebd1b9" class="article-item" target="_blank" rel="noopener">
+        Hidup, Berkarir, Berkeluarga, Berislam, Beragama, sampai Beriman adalah Keputusan Investasi. WHY?
+        <span class="article-tag">Edition No. 02</span>
+      </a>
+
+      <a href="https://medium.com/@edtechislamic/ikhlas-kecewa-dan-mental-health-4c6d97c12a13" class="article-item" target="_blank" rel="noopener">
+        Ikhlas, Kecewa, dan Mental Health: Gimana Islam Ngajarin Kita buat Menghadapi Dunia yang Jalannya Kadang Sangat di Luar Nalar
+        <span class="article-tag">Edition No. 01</span>
+      </a>
+
+      <div class="divider">&middot; &middot; &middot; &#10022; &middot; &middot; &middot;</div>
+
+      <!-- Sign Off -->
+      <div class="sign-off">
+        <div class="closing">Yours in pursuit of wisdom,</div>
+        <div class="signature">AKAL Indonesia</div>
+      </div>
+
+      <!-- Footer -->
+      <div class="letter-footer">
+        <div class="footer-links">
+          <a href="https://medium.com/akal-notes" target="_blank" rel="noopener">Medium</a>
+          <a href="https://www.instagram.com/akal.indo/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.threads.net/@akal.indo" target="_blank" rel="noopener">Threads</a>
+        </div>
+        <p class="unsubscribe">
+          Halaman ini eksklusif untuk subscriber AKAL Letters.
+          <br>Mohon tidak menyebarkan link ini kepada pihak lain.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
